@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         Party Bag Flavor
 // @namespace    https://lyrania.co.uk/
-// @version      0.1
+// @version      0.2
+// @updateURL    https://github.com/msquibb/Lyrania-User-Scripts/raw/main/Party%20Bag%20Flavor.user.js
 // @description  Make important party bag items stand out
 // @author       Ackron
-// @match        https://lyrania.co.uk/use-vibblez-birthday-item.php
+// @match        https://lyrania.co.uk/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=github.io
 // @grant        none
 // ==/UserScript==
