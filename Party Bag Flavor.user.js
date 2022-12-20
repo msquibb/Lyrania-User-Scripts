@@ -1,17 +1,18 @@
 // ==UserScript==
 // @name         Party Bag Flavor
-// @namespace    https://lyrania.co.uk/
-// @version      0.2
+// @namespace    https://thesilvertower.net/
+// @version      0.2.1
 // @updateURL    https://github.com/msquibb/Lyrania-User-Scripts/raw/main/Party%20Bag%20Flavor.user.js
 // @description  Make important party bag items stand out
 // @author       Ackron
-// @match        https://lyrania.co.uk/*
+// @match        *://lyrania.co.uk/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=github.io
 // @grant        none
 // ==/UserScript==
 
 (function() {
     'use strict';
+    console.info("Script starting");
     const autoRegEx = /autos/;
     const jboxRegex = /A shiny box of jewels!/;
     const tokensRegex = /tokens/;
@@ -23,7 +24,8 @@
     var tokens = 0;
     var orbs = {poor: 0, decent: 0, fine: 0, quality: 0};
     var dp = 0;
-    var presents = document.getElementsByClassName('VibbleBdayOpened')
+    var presents = document.getElementsByClassName('VibbleBdayOpened');
+    console.info(presents);
     for (var i = 0; i < presents.length; i++){
         var present = presents[i];
         var presentDesc = present.textContent;
@@ -52,4 +54,6 @@
         report = newReport;
     }
     report.innerHTML = `<ul><li>Jewel Boxes: ${jbox}</li><li>Autos: ${autos}</li><li>Tokens: ${tokens}</li><li>Dungeon Points: ${dp}</li><li>Orbs: 0</li></ul>`
+    var rpt = {'autos': autos, 'jbox': jbox, 'orbs': orbs, 'tokens': tokens, 'dp': dp};
+    console.info(rpt);
 })();
