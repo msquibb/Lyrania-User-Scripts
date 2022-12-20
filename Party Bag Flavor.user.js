@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Party Bag Flavor
 // @namespace    https://thesilvertower.net/
-// @version      0.2.3
+// @version      0.2.4
 // @updateURL    https://github.com/msquibb/Lyrania-User-Scripts/raw/main/Party%20Bag%20Flavor.user.js
 // @description  Make important party bag items stand out
 // @author       Ackron
@@ -25,13 +25,17 @@
     UpdateOpenedGifts();
   });
 
-  observer.observe(popupDiv, {
-    attributes: true,
-    childList: true,
-    subtree: true
-  });
+  const observe = () => {
+    observer.observe(popupDiv, {
+      attributes: true,
+      childList: true,
+      subtree: true,
+      attributeFilter: []
+    });
+  }
 
   function UpdateOpenedGifts() {
+    observer.disconnect();
     var autos = 0;
     var jbox = 0;
     var tokens = 0;
@@ -72,6 +76,8 @@
       var rpt = { 'autos': autos, 'jbox': jbox, 'orbs': orbs, 'tokens': tokens, 'dp': dp };
       console.info(rpt);
     }
+    observe();
   }
 
+  observe();
 })();
