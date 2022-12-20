@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Party Bag Flavor
 // @namespace    https://thesilvertower.net/
-// @version      0.2.1
+// @version      0.2.2
 // @updateURL    https://github.com/msquibb/Lyrania-User-Scripts/raw/main/Party%20Bag%20Flavor.user.js
 // @description  Make important party bag items stand out
 // @author       Ackron
