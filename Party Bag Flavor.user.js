@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Party Bag Flavor
 // @namespace    https://thesilvertower.net/
-// @version      0.2.2
+// @version      0.2.3
 // @updateURL    https://github.com/msquibb/Lyrania-User-Scripts/raw/main/Party%20Bag%20Flavor.user.js
 // @description  Make important party bag items stand out
 // @author       Ackron
@@ -58,10 +58,11 @@
     }
     var header = document.getElementsByClassName('PartyBagHeaderMessage');
     var report = document.getElementById('ackron-party-report');
-    if (header){
+    if (header.length > 0){
       if (report) {
         console.log('We have the report div already');
       } else {
+        console.info(header);
         var newReport = document.createElement('div');
         newReport.setAttribute('id', 'ackron-party-report');
         header[0].insertAdjacentElement('afterend', newReport);
