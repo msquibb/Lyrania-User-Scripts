@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Party Bag Flavor
 // @namespace    https://thesilvertower.net/
-// @version      0.3.0
+// @version      0.3.1
 // @updateURL    https://github.com/msquibb/Lyrania-User-Scripts/raw/main/Party%20Bag%20Flavor.user.js
 // @description  Make important party bag items stand out
 // @author       Ackron
@@ -83,9 +83,9 @@
         degg += parseInt(presentDesc.replace(numberRegex, ''));
         present.setAttribute('style', 'color: #00DD00; font-weight: bold;')
       } else if (presentDesc.match(quadProcRegex)) {
-        quadProc += parseInt(presentDesc.replace(numberRegex, ''));
+        quadProc++;
       } else if (presentDesc.match(decProcRegex)){
-        decProc += parseInt(presentDesc.replace(numberRegex, ''));
+        decProc++;
       } else if (presentDesc.match(jboxRegex)){
         jewels += parseInt(presentDesc.replace(numberRegex, ''));
       }
