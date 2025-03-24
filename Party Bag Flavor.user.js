@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Party Bag Flavor
 // @namespace    https://thesilvertower.net/
-// @version      0.3.2
+// @version      0.3.3
 // @updateURL    https://github.com/msquibb/Lyrania-User-Scripts/raw/main/Party%20Bag%20Flavor.user.js
 // @description  Make important party bag items stand out
 // @author       Ackron
@@ -86,8 +86,8 @@
         quadProc++;
       } else if (presentDesc.match(decProcRegex)){
         decProc++;
-      } else if (presentDesc.match(jboxRegex)){
-        jewels += parseInt(presentDesc.replace(numberRegex, ''));
+      } else if (presentDesc.match(jewelsRegex)){
+        jewels++;
       }
     }
     var header = document.getElementsByClassName('PartyBagHeaderMessage');
@@ -102,7 +102,7 @@
         header[0].insertAdjacentElement('afterend', newReport);
         report = newReport;
       }
-      report.innerHTML = `<ul><li>Jewel Boxes: ${jbox}</li><li>Autos: ${autos}</li><li>Tokens: ${tokens}</li><li>Dungeon Points: ${dp}</li><li>Dragon Eggs: ${degg}</li><li>Quad Procs: ${quadProc}</li><li>Decuple Procs: ${decProc}</li><li>Orbs: ${orbs.quality + orbs.decent + orbs.fine + orbs.poor}<ul><li>Quality: ${orbs.quality}</li><li>Fine: ${orbs.fine}</li><li>Decent: ${orbs.decent}</li><li>Poor: ${orbs.poor}</li></ul></li></ul>`;
+      report.innerHTML = `<ul><li>Jewel Boxes: ${jbox}</li><li>Jewelery Pieces: ${jewels}</li><li>Autos: ${autos}</li><li>Tokens: ${tokens}</li><li>Dungeon Points: ${dp}</li><li>Dragon Eggs: ${degg}</li><li>Quad Procs: ${quadProc}</li><li>Decuple Procs: ${decProc}</li><li>Orbs: ${orbs.quality + orbs.decent + orbs.fine + orbs.poor}<ul><li>Quality: ${orbs.quality}</li><li>Fine: ${orbs.fine}</li><li>Decent: ${orbs.decent}</li><li>Poor: ${orbs.poor}</li></ul></li></ul>`;
       var rpt = { 
         'autos': autos, 
         'jbox': jbox, 
@@ -111,7 +111,8 @@
         'dp': dp, 
         'eggs': degg, 
         'quad': quadProc, 
-        'decuple': decProc 
+        'decuple': decProc,
+        'jewelery': jewels
       };
       console.info(rpt);
     }
